@@ -8,15 +8,183 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <header>
-        <h2 class="text-6xl">Hunting Phone</h2>
+    <header class="mt-20 mx-20">
+         <div>
+          <div class="navbar bg-base-100">
+            <div class="navbar-start">
+              <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M4 6h16M4 12h8m-8 6h16" />
+                  </svg>
+                </div>
+                <ul
+                  tabindex="0"
+                  class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                  <li><a>Item 1</a></li>
+                  <li>
+                    <a>Parent</a>
+                    <ul class="p-2">
+                      <li><a>Submenu 1</a></li>
+                      <li><a>Submenu 2</a></li>
+                    </ul>
+                  </li>
+                  <li><a>Item 3</a></li>
+                </ul>
+              </div>
+              <a class="btn text-xl ">Hot Gadgets</a>
+            </div>
+            <div class="navbar-center hidden lg:flex">
+              <ul class="menu menu-horizontal px-1">
+                <li><a>Item 1</a></li>
+                <li>
+                  <details>
+                    <summary>Phones</summary>
+                    <ul class="p-2">
+                      <li><a>IPhone</a></li>
+                      <li><a>Samsung</a></li>
+                    </ul>
+                  </details>
+                </li>
+                <li><a>Item 3</a></li>
+              </ul>
+            </div>
+            <div class="navbar-end">
+              <a class="btn bg-[#0D6EFD] text-white font-bold">Sign Up</a>
+            </div>
+          </div>
+         </div>
+
+           <div class="my-20 mx-20 text-center">
+             <h1 class="text-6xl font-extrabold mb-8">Apple Iphone 13 Pro Max</h1>
+             <p class="text-gray-500 mb-5">There are many variations of passages of Lorem Ipsum available, but the majority <br> have suffered alteration in some form, by injected humou.</p>
+             <button id="cat1-button" class="btn bg-[#0D6EFD] text-white font-bold">Buy Now</button>                                                                                           
+           </div>
+
+        <!-- <h2 class="text-6xl">Hunting Phone</h2> -->
     </header>
-    <main>
-
+    <main class="container mx-auto mt-8">
+        <section class="flex justify-center my-8">
+            <input id="search-field" type="text"  placeholder="Search....." class="input w-full max-w-xl bg-zinc-100" />
+            <button onclick="handleSearch()" class="btn bg-[#0D6EFD] text-base text-white font-bold">Search</button>
+            <!-- another search field -->
+            <!-- <input id="search-field2" type="text" placeholder="Search here" class="input input-bordered w-full max-w-xs" />
+            <button onclick="handleSearch2()" class="btn btn-primary">SEARCH</button> -->
+        </section>
+         
+        <!-- search results -->
+       <section>
+        <!-- spinner or loader -->
+        <div id="loading-spinner" class="text-center my-40 hidden">
+          <span class="loading loading-spinner loading-lg"></span>
+         </div>
+           <div id="phone-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-center">
+            <!-- <div class="card bg-base-100 w-96 shadow-xl">
+                <figure>
+                  <img
+                    src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                    alt="Shoes" />
+                </figure>
+                <div class="card-body">
+                  <h2 class="card-title">Shoes!</h2>
+                  <p>If a dog chews shoes whose shoes does he choose?</p>
+                  <div class="card-actions justify-end">
+                    <button class="btn btn-primary">Buy Now</button>
+                  </div>
+                </div>
+              </div> -->
+           </div>
+           <div id="no-found-message" class="mt-4 mb-7 d-none text-center">
+            <h3 class="text-warning text-4xl font-semibold">No Phone Found. Please try a new search</h3>
+           </div>
+           <!-- show all button -->
+            <div id="show-all-container" class="hidden text-end my-8">
+                <button onclick="handleShowAll()"class="btn bg-[#0D6EFD] text-white text-base font-bold">Show all</button>
+            </div>
+       </section>
+       
+       <!-- Show Details Modal -->
+       <!-- Open the modal using ID.showModal() method -->
+       
+          <dialog id="show_Details_modal" class="modal modal-bottom sm:modal-middle">
+            <div class="modal-box">
+             <div id="show-detail-container">
+             </div>
+               <div class="modal-action">
+              <form method="dialog">
+             <!-- if there is a button in form, it will close the modal -->
+                <button class="btn bg-[#DC3545] text-white">Close</button>
+               </form>
+              </div>
+             </div>
+          </dialog> 
     </main>
-    <footer>
+            <footer class="px-28 py-10 bg-[#0D6EFD14] text-base-content p-10 flex flex-col-reverse ">
+                <div class="flex justify-between flex-col  lg:flex-row py-10">
+                  <nav class="flex flex-col gap-4">
+                    <h6 class="footer-title ">Resource</h6>
+                    <a class="link link-hover">Faq</a>
+                    <a class="link link-hover">Support</a>
+                    <a class="link link-hover">Privacy Policy</a>                                        
+                    <a class="link link-hover">Terms of Service</a>
+                    <a class="link link-hover">Advertisement</a>
+                  </nav>
+                  <nav class="flex flex-col gap-4">
+                    <h6 class="footer-title">Popular</h6>
+                    <a class="link link-hover">UIUX Design</a>
+                    <a class="link link-hover">Product Design</a>
+                    <a class="link link-hover">Back-End Developer</a>
+                    <a class="link link-hover">Front-End Developer</a>
+                  </nav>
+                  <nav class="flex flex-col gap-4">
+                    <h6 class="footer-title">Resource</h6>
+                    <a class="link link-hover"> Faq</a>
+                    <a class="link link-hover">Support</a>
+                    <a class="link link-hover">Privacy Policy</a>
+                    <a class="link link-hover">Terms of Service</a>
+                  </nav>
+                  <nav class="flex flex-col gap-4">
+                    <h6 class="footer-title">Company</h6>
+                    <a class="link link-hover">About us</a>
+                    <a class="link link-hover">Contact us</a>
+                    <a class="link link-hover">Contact</a>
+                    <a class="link link-hover">Career Tips</a>
+                    <a class="link link-hover">Career</a>
+                  </nav>
+                </div>
+                <div class=" border-base-300 border-b flex justify-between pb-6 pt-10">
+                      <div>
+                        <p class="text-4xl font-bold">Hot Gadgets</p>
+                        <p class="text-slate-500 mt-5">Providing reliable tech since 1992</p>
+                      </div>
+                  <!-- <div class="flex justify-end gap-6"> -->
+                    <!-- <nav class="md:place-self-center md:justify-self-end"> -->
+                      <div class="grid grid-flow-col gap-4">
+                        <a>
+                          <img src="image/f.svg" alt="">
+                        </a>
+                        <a>
+                          <img src="image/Twitter.svg" alt="">
+                        </a>
+                        <a>
+                          <img src="image/Instagram.svg" alt="">
+                        </a>
+                        <button class="btn bg-[#0D6EFD] text-base text-white font-bold">Join Premium</button>
+                      </div>
+                    <!-- </nav> -->
 
-    </footer>
+                  <!-- </div> -->
+                  </div>
+            </footer>
      <script src="js/phone.js"></script>
 </body>
 </html>
